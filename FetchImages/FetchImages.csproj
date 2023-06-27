@@ -195,12 +195,6 @@
     <None Include="Resources\icons8_rename_24px.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\html-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8_downloading_updates_24px_2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icons8_microsoft_excel_24px.png" />
   </ItemGroup>
   <ItemGroup>
@@ -223,6 +217,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Code_ HTML.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

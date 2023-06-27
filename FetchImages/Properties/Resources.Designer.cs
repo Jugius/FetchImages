@@ -63,9 +63,9 @@ namespace FetchImages.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap html_icon {
+        internal static System.Drawing.Bitmap Code__HTML {
             get {
-                object obj = ResourceManager.GetObject("html_icon", resourceCulture);
+                object obj = ResourceManager.GetObject("Code__HTML", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -76,16 +76,6 @@ namespace FetchImages.Properties {
         internal static System.Drawing.Bitmap icons8_broom_24px {
             get {
                 object obj = ResourceManager.GetObject("icons8_broom_24px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_downloading_updates_24px_2 {
-            get {
-                object obj = ResourceManager.GetObject("icons8_downloading_updates_24px_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

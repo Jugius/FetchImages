@@ -5,7 +5,6 @@ using SoftwareManagement.Updater;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -280,12 +279,8 @@ namespace FetchImages
             lblAddressesNumber.Text = "";
         }
 
-        private void mnuSendLetter_Click(object sender, EventArgs e)
-        {
-            string mailto = $"mailto:{"jugius@gmail.com"}?Subject={"Message from app: FetchImages"}";
-            mailto = System.Uri.EscapeUriString(mailto);
-            System.Diagnostics.Process.Start(mailto);
-        }
+        private void mnuSendLetter_Click(object sender, EventArgs e) =>
+        System.Diagnostics.Process.Start(AboutDialog.GetSupportEmailProcessString(this.ApplicationName));
 
         private void mnuCheckUpdates_Click(object sender, EventArgs e)
         {

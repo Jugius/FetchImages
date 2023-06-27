@@ -69,7 +69,6 @@ partial class AboutDialog
         this.linkWWW.TabIndex = 7;
         this.linkWWW.TabStop = true;
         this.linkWWW.Text = "Сайт разработчика";
-        this.linkWWW.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkWWW_LinkClicked);
         // 
         // btCancel
         // 
@@ -116,7 +115,7 @@ partial class AboutDialog
         // 
         // pictureAppImage
         // 
-        this.pictureAppImage.Image = global::FetchImages.Properties.Resources.html_icon;
+        this.pictureAppImage.Image = global::FetchImages.Properties.Resources.Code__HTML;
         this.pictureAppImage.Location = new System.Drawing.Point(3, 3);
         this.pictureAppImage.Name = "pictureAppImage";
         this.pictureAppImage.Size = new System.Drawing.Size(101, 101);

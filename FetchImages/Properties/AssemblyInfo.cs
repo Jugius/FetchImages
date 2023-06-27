@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("OoHelp.Net")]
 [assembly: AssemblyProduct("FetchImages")]
-[assembly: AssemblyCopyright("© Andrew Slusarev 2020")]
+[assembly: AssemblyCopyright("© 2020 OoHelp.Net")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

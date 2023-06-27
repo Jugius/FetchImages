@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Reflection;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
@@ -6,26 +7,23 @@ using System.Windows.Forms.VisualStyles;
 namespace FetchImages;
 public partial class AboutDialog : Form
 {
-    public const string ApplicationSite = @"https://oohelp.net/software/fetchimages";
+    private const string SoftwareSiteBase = @"https://oohelp.net/software";
+    private const string SupportEmail = "jugius@gmail.com";
     public AboutDialog()
     {
         InitializeComponent();
     }
     public AboutDialog(MainForm app) : this()
     {
-        this.Text = $"О программе FetchImages";
-        lblProgramName.Text = "FetchImages";
+        this.Text = $"О программе {app.ApplicationName}";
+        lblProgramName.Text = app.ApplicationName;
         this.Icon = app.Icon;
-        pictureAppImage.Image = FetchImages.Properties.Resources.html_icon;
-        var version = app.Version;
-        lblVersion.Text = "Версия: " + version.Major + "." + version.Minor +
-            (version.Build != 0 ? $" (build {version.Build}" +
-            (version.Revision > 0 ? $" rev. {version.Revision}" : null) + ")" : null);
-
+        lblVersion.Text = GetFormattedVersionString(app.Version);
         lblCopyright.Text = GetAssemblyCopyright(Assembly.GetExecutingAssembly());
-        linkWWW.Text = $"Страница FetchImages";
+        linkWWW.Text = $"Страница {app.ApplicationName}";
+        linkWWW.LinkClicked += (sender, e) => { Process.Start($"{SoftwareSiteBase}/{app.ApplicationName.ToLower()}"); };
     }
-    private string GetAssemblyCopyright(Assembly assembly)
+    private static string GetAssemblyCopyright(Assembly assembly)
     {
         if (assembly == null) return "";
         object[] attributes = assembly.GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
@@ -36,14 +34,26 @@ public partial class AboutDialog : Form
         return ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
 
     }
+    private static string GetFormattedVersionString(Version version)
+    {
+        string v = $"Версия: {version.Major}.{version.Minor}";
+        if (version.Build != 0)
+        {
+            v += $" (build {version.Build}";
+            if (version.Revision > 0)
+            {
+                v += $" rev. {version.Revision}";
+            }
+            v += ")";
+        }
+        return v;
+    }
+    public static string GetSupportEmailProcessString(string appName) =>
+        $"mailto:{SupportEmail}?Subject=Support request for {appName}";
     private void _secondaryPanel_Paint(object sender, PaintEventArgs e)
     {
         VisualStyleRenderer renderer = new VisualStyleRenderer(VisualStyleElement.CreateElement("TASKDIALOG", 8, 0));
         renderer.DrawBackground(e.Graphics, _secondaryPanel.ClientRectangle, e.ClipRectangle);
     }
 
-    private void linkWWW_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-    {
-        Process.Start(AboutDialog.ApplicationSite);
-    }
 }
