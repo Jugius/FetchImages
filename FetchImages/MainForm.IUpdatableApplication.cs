@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Windows.Forms;
-using SoftwareManagement.Updater;
+using OohelpWebApps.Software.Updater;
 
 namespace FetchImages;
 
@@ -12,5 +12,6 @@ public partial class MainForm : IUpdatableApplication
     public string ApplicationName => _name;
     public Form MainWindow => this;
     public Version Version => Assembly.GetExecutingAssembly().GetName().Version;
-    public string UpdatesServerPath => _updatesServer;
+    public Uri UpdatesServer => new Uri(_updatesServer);
+    public Uri DownloadPage => new Uri("https://oohelp.net/software/fetchimages");
 }

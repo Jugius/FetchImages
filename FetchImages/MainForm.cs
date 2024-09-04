@@ -1,7 +1,7 @@
 ﻿using FetchImages.Common;
 using FetchImages.Configuration;
 using OfficeOpenXml;
-using SoftwareManagement.Updater;
+using OohelpWebApps.Software.Updater;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
